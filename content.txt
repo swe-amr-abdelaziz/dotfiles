@@ -1,3 +1,4 @@
+.config/greenclip.toml
 .config/kitty/
 .p10k.zsh
 .xinitrc
