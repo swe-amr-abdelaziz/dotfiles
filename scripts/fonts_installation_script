@@ -1,0 +1,14 @@
+#!/bin/sh
+# Copy any font (folder name) to the $font variable from here:
+# https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts
+
+font=Meslo
+fontpath="$HOME/.local/share/fonts"
+version="2.3.3"
+
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v"$version"/$font.zip
+mkdir -p "$fontpath"
+unzip $font.zip -d "$fontpath"
+rm "$fontpath"/*Windows*
+rm $font.zip
+fc-cache -fv

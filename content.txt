@@ -1,0 +1,3 @@
+.config/kitty/
+.p10k.zsh
+.zshrc
