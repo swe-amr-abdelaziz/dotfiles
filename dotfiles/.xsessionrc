@@ -1,0 +1,20 @@
+# Default Terminal
+export TERMINAL=/usr/bin/kitty
+
+# Sleep Settings
+xset s off
+xset -dpms
+
+# Display Settings
+## HDMI
+### xrandr --output DisplayPort-1-3 --same-as eDP-1 --mode 1920x1080 --scale 1x1 --set "output_csc" "tvrgb"
+## Laptop
+xrandr --output eDP-1 --mode 1920x1080 --scale 1x1 --dpi 120
+
+# Keyboard Settings
+setxkbmap -layout us,ara -option 'grp:win_space_toggle'
+setxkbmap -option caps:swapescape
+xset r rate 250 60
+
+# Touchpad Settings
+xinput --set-prop "AlpsPS/2 ALPS DualPoint TouchPad" "libinput Natural Scrolling Enabled" 1

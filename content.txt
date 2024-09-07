@@ -1,3 +1,6 @@
 .config/kitty/
 .p10k.zsh
+.xinitrc
+.Xresources
+.xsessionrc
 .zshrc

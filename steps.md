@@ -80,3 +80,76 @@ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin && \
 sudo ln -s $HOME/.local/kitty.app/bin/kitty /usr/bin/kitty
 ```
 
+## Installing i3
+
+### Install dependencies:
+
+```bash
+sudo apt install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
+                 libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
+                 libstartup-notification0-dev libxcb-randr0-dev \
+                 libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
+                 libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
+                 autoconf libxcb-xrm0 libxcb-xrm-dev automake \
+                 libxcb-shape0-dev pkg-config meson
+```
+
+```bash
+sudo apt install dex git suckless-tools xss-lock
+```
+
+### Install i3
+
+```bash
+https://i3wm.org/downloads/
+```
+
+```bash
+tar xvf ...... && \
+cd i3...... && \
+mkdir build && \
+cd build && \
+meson .. && \
+ninja && \
+sudo ninja install && \
+cd .. && \
+rm -rf i3......
+```
+
+### Install i3blocks
+
+```bash
+git clone https://github.com/vivien/i3blocks && \
+cd i3blocks && \
+./autogen.sh && \
+./configure && \
+make && \
+sudo make install && \
+cd .. && \
+rm -rf i3blocks
+```
+
+###  Add i3 to .xsession
+
+```bash
+sudo vim /usr/share/xsessions/i3.desktop
+```
+
+```bash
+[Desktop Entry]
+Name=i3
+Comment=improved dynamic tiling window manager
+Exec=i3
+TryExec=i3
+Type=Application
+X-LightDM-DesktopName=i3
+DesktopNames=i3
+Keywords=tiling;wm;windowmanager;window;manager;
+```
+
+### Add GTK themes and cursor
+
+```bash
+sudo apt install lxappearance
+```
+
