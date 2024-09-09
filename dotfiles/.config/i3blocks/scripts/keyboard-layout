@@ -1,0 +1,12 @@
+#!/usr/bin/sh
+
+result=$(xset -q | grep LED | awk '{ print $10 }' | cut -c 5)
+
+case "$result" in
+  "0") layout="en" ;;
+  "1") layout="ع" ;;
+  *) layout="?" ;;
+esac
+
+layoutSpan="<span foreground='#FFFFFF' size='small' rise='6pt'>$layout</span>"
+echo "<span foreground='#81A1C1' size='x-large'> $layoutSpan</span>"

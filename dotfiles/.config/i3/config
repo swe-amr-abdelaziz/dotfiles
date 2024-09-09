@@ -1,0 +1,20 @@
+set $ws1 "1:1  "
+set $ws2 "2:2  "
+set $ws3 "3:3 󰨞 "
+set $ws4 "4:4  "
+set $ws5 "5:5  "
+set $ws6 "6:6 󰒱 "
+set $ws7 "7:7  "
+set $ws8 "8:8  "
+set $ws9 "9:9  "
+set $mode_system (l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown
+
+include $HOME/.config/i3/modules/start.conf
+include $HOME/.config/i3/modules/theme.conf
+include $HOME/.config/i3/modules/workspaces.conf
+include $HOME/.config/i3/modules/bar.conf
+include $HOME/.config/i3/modules/classes.conf
+include $HOME/.config/i3/modules/gaps.conf
+include $HOME/.config/i3/modules/resize.conf
+include $HOME/.config/i3/modules/exit_mode.conf
+include $HOME/.config/i3/modules/keymaps.conf

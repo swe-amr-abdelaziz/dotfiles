@@ -1,0 +1,52 @@
+[disk]
+command= echo "<span size='large'> <span size='small' rise='2pt'> $(df -h | grep "/$" | awk '{print $5}')</span> </span>"
+background=#8FBCBB
+color=#2E3440
+markup=pango
+interval=10
+
+[keyboard-layout]
+command=$HOME/.config/i3blocks/scripts/keyboard-layout
+markup=pango
+interval=once
+signal=11
+
+[memory]
+command=$HOME/.config/i3blocks/scripts/memory
+label=<span size='large'> 󰍛</span>
+background=#8FBCBB
+color=#2E3440
+markup=pango
+interval=5
+
+[cpu_usage]
+command=$HOME/.config/i3blocks/scripts/cpu_usage
+color=#81A1C1
+interval=1
+markup=pango
+
+[temperature]
+command=$HOME/.config/i3blocks/scripts/temperature
+markup=pango
+background=#8FBCBB
+color=#2E3440
+interval=5
+
+[date]
+command=echo "<span size='large'> <span size='small' rise='2pt' foreground='#FFFFFF'>$(date +"%Y-%m-%d")</span></span>"; if [ $button ]; then orage -t; fi
+markup=pango
+color=#81A1C1
+interval=once
+
+[time]
+command=echo "<span size='large'> <span size='small' rise='2pt'> $(date +"%I:%M %p")</span> </span>"
+markup=pango
+background=#8FBCBB
+color=#2E3440
+interval=1
+
+[rofi-powermenu]
+command=echo "<span size='large'></span> "; if [ $button ]; then rofi -show menu -modi 'menu:rofi-power-menu' >/dev/null; fi
+color=#81A1C1
+markup=pango
+interval=once

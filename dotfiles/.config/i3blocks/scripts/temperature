@@ -1,0 +1,12 @@
+#!/bin/sh
+
+path='/sys/devices/platform/coretemp.0/hwmon'
+folder=$(ls $path)
+fullpath="${path}/${folder}"
+
+t1=$(cat "${fullpath}/temp1_input")
+t2=$(cat "${fullpath}/temp2_input")
+t3=$(cat "${fullpath}/temp3_input")
+temp=$(((t1 + t2 + t3) / 3000))
+
+echo "<span size='large'> <span size='small' rise='2pt'> $temp°C</span> </span>"

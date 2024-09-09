@@ -1,0 +1,8 @@
+#!/usr/bin/sh
+
+cpu=$(top -bn1 | grep "Cpu(s)" | \
+           sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | \
+           awk '{print 100 - $1"%"}')
+
+cpuSpan="<span foreground='#FFFFFF' size='small' rise='2pt'>$cpu</span>"
+echo "<span foreground='#81A1C1' size='large'>󰓅 $cpuSpan</span>"

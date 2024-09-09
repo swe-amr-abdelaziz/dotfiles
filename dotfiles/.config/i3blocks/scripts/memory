@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+ram=$(free -m | awk 'NR==2{printf "%.1fG", $3/1024 }')
+
+echo "<span size='small' rise='2pt'> $ram</span><span size='large'> </span>"
