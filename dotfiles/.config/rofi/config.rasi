@@ -1,0 +1,40 @@
+configuration {
+  disable-history: false;
+  display-calc: "";
+  display-combi: "";
+  display-drun: "";
+  display-emoji: "󰞅";
+  display-file-browser-extended: "";
+  display-filebrowser: "";
+  display-run: "";
+  display-ssh: "";
+  display-window: "";
+  drun-display-format: "{name}";
+  font: "MesloLGS Nerd Font 15";
+  hover-select: false;
+  kb-accept-entry: "Return";
+  kb-page-next: "Page_Down,Control+n";
+  kb-page-prev: "Page_Up,Control+p";
+  kb-remove-to-eol: "";
+  kb-row-down: "Down,Control+j";
+  kb-row-up: "Up,Control+k";
+  line-margin: 10;
+  modes: "window,drun,run,ssh,file-browser-extended,filebrowser,emoji,bookmarks";
+  modi: "bookmarks: rofi-bookmarks.py";
+  show-icons: true;
+}
+
+@theme "~/.config/rofi/nord.rasi"
+
+element-icon {
+  size: 32px;
+  padding: 8px 16px;
+}
+
+element { border-radius: 0px; }
+
+element-text { vertical-align: 0.5; }
+
+listview { lines: 5; }
+
+window { width: 40%; }

@@ -212,3 +212,74 @@ cd .. && \
 rm -rf volumeicon
 ```
 
+## Installing rofi
+
+### rofi-calc
+
+```bash
+sudo apt install rofi-dev qalc libtool libtool-bin && \
+git clone https://github.com/svenstaro/rofi-calc.git && \
+cd rofi-calc/ && \
+mkdir m4 && \
+autoreconf -i && \
+mkdir build && \
+cd build/ && \
+../configure && \
+make && \
+sudo make install
+```
+
+* Locate the rofi-calc binary in `/usr/lib64/rofi` or `/usr/lib/x86_64-linux-gnu/rofi` directories
+
+### rofi-file-browser-extended
+
+```bash
+sudo apt install cmake && \
+git clone https://github.com/marvinkreis/rofi-file-browser-extended.git && \
+cd rofi-file-browser-extended && \
+cmake . && \
+make && \
+sudo make install && \
+sudo chmod 755 /usr/lib/x86_64-linux-gnu/rofi/filebrowser.so
+```
+
+### rofi-emoji
+
+```bash
+git clone https://github.com/Mange/rofi-emoji.git && \
+cd rofi-emoji && \
+autoreconf -i && \
+mkdir build && \
+cd build/ && \
+../configure && \
+make && \
+sudo make install
+```
+
+### noto-emoji
+
+```bash
+# https://github.com/googlefonts/noto-emoji
+mkdir -p $HOME/.fonts && \
+cd $HOME/Downloads && \
+wget https://github.com/googlefonts/noto-emoji/raw/main/fonts/NotoColorEmoji.ttf && \
+mv NotoColorEmoji.ttf $HOME/.fonts && \
+fc-cache -fv
+```
+
+## Extras
+
+### Snap Store
+
+```bash
+sudo mv /etc/apt/preferences.d/nosnap.pref ~/Documents/nosnap.backup && \
+sudo apt update && \
+sudo apt install snapd
+```
+
+
+```bash
+cd .. && \
+```
+
+* Optional: `https://github.com/axrdiv/i3-rofi-scratchpad`

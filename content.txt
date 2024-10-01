@@ -1,7 +1,9 @@
+.config/fontconfig/fonts.conf
 .config/greenclip.toml
 .config/i3/
 .config/i3blocks/
 .config/kitty/
+.config/rofi/
 .config/volumeicon/
 .local/wallpapers/
 .p10k.zsh
