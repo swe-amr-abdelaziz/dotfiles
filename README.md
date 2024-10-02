@@ -70,7 +70,7 @@ sudo ln -s /usr/bin/batcat /usr/bin/bat
 ### After ZSH
 
 ```bash
-sudo apt install htop neofetch vim
+sudo apt install htop neofetch vim tmux
 ```
 
 ### Kitty
@@ -277,8 +277,82 @@ sudo apt update && \
 sudo apt install snapd
 ```
 
+## Installing NNN
 
 ```bash
+sudo apt install libreadline-dev && \
+cd $HOME/Downloads && \
+git clone https://github.com/jarun/nnn.git && \
+cd nnn && \
+make O_NERD=1 && \
+mv nnn $HOME/.local/bin && \
+cd .. && \
+rm -rf nnn
+```
+
+### Install NNN plugins
+
+```bash
+sh -c "$(curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs)"
+```
+
+- Create the file `~/.local/bin/preview_cmd.sh`
+
+```bash
+#!/usr/bin/env sh
+# #############################################################################
+# File: preview_cmd.sh
+# Description: Minimal example to preview files and directories
+#              No external dependencies
+#              Can be easily extended
+#              Automatically exits when the NNN_FIFO closes
+#              Prints a `tree` if directory or `head` if it's a file
+#
+# Shell: POSIX compliant
+# Author: Todd Yamakawa
+#
+# ToDo:
+#   1. Add support for more types of files
+#         e.g. binary files, we shouldn't try to `head` those
+# #############################################################################
+
+# Check FIFO
+NNN_FIFO=${NNN_FIFO:-$1}
+if [ ! -r "$NNN_FIFO" ]; then
+    echo "Unable to open \$NNN_FIFO='$NNN_FIFO'" | less
+    exit 2
+fi
+
+# Read selection from $NNN_FIFO
+while read -r selection; do
+    clear
+    lines=$(($(tput lines)-1))
+    cols=$(tput cols)
+
+    # Print directory tree
+    if [ -d "$selection" ]; then
+        cd "$selection" || continue
+        tree | head -n $lines | cut -c 1-"$cols"
+        continue
+    fi
+
+    # Print file head
+    if [ -f "$selection" ]; then
+        head -n $lines "$selection" | cut -c 1-"$cols"
+        continue
+    fi
+
+    # Something went wrong
+    echo "Unknown type: '$selection'"
+done < "$NNN_FIFO"
+```
+
+### Preview dependencies
+
+```bash
+sudo apt install djvulibre-bin ffmpeg ffmpegthumbnailer poppler-utils
+```
+
 cd .. && \
 ```
 

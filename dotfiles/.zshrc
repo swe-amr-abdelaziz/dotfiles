@@ -226,3 +226,14 @@ source ~/.fzf/shell/completion.zsh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# NNN plugins
+export NNN_PLUG='p:preview-tui'
+export NNN_FIFO=/tmp/nnn.fifo
+export PAGER="less -R"
+
+# NNN fast explorer
+source ~/.local/zsh/quitcd.zsh
+
+# n^M == Return
+bindkey -s '^E' 'n^M'

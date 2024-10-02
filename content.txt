@@ -3,9 +3,11 @@
 .config/i3/
 .config/i3blocks/
 .config/kitty/
+.config/nnn/
 .config/rofi/
 .config/volumeicon/
 .local/wallpapers/
+.local/zsh/
 .p10k.zsh
 .xinitrc
 .Xresources
