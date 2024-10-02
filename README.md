@@ -267,6 +267,8 @@ mv NotoColorEmoji.ttf $HOME/.fonts && \
 fc-cache -fv
 ```
 
+* Optional: `https://github.com/axrdiv/i3-rofi-scratchpad`
+
 ## Extras
 
 ### Snap Store
@@ -353,6 +355,24 @@ done < "$NNN_FIFO"
 sudo apt install djvulibre-bin ffmpeg ffmpegthumbnailer poppler-utils
 ```
 
+## LazyGit
+
+### Install Delta
+
+* Go to delta releases page [here](https://github.com/dandavison/delta/releases/)
+* Download the package with the name: `git-delta_x.x.x_amd64.deb`
+* Run:
+
+```bash
+sudo apt install ./git-delta_x.x.x_amd64.deb && rm ./git-delta_x.x.x_amd64.deb
 ```
 
-* Optional: `https://github.com/axrdiv/i3-rofi-scratchpad`
+### Install LazyGit
+
+```bash
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+```
+

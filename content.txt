@@ -3,9 +3,11 @@
 .config/i3/
 .config/i3blocks/
 .config/kitty/
+.config/lazygit/
 .config/nnn/
 .config/rofi/
 .config/volumeicon/
+.gitconfig
 .local/wallpapers/
 .local/zsh/
 .p10k.zsh
