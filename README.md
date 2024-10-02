@@ -353,7 +353,6 @@ done < "$NNN_FIFO"
 sudo apt install djvulibre-bin ffmpeg ffmpegthumbnailer poppler-utils
 ```
 
-cd .. && \
 ```
 
 * Optional: `https://github.com/axrdiv/i3-rofi-scratchpad`
