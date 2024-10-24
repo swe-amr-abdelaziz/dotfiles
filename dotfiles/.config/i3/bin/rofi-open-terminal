@@ -9,6 +9,6 @@ cat ~/.local/bin/main_dirs | \
                    -file-browser-oc-cmd "kitty --working-directory={} vim;name:Vim" \
                    -file-browser-oc-cmd "kitty --working-directory={} nvim;name:NeoVim (nvim)" \
                    -file-browser-oc-cmd "code;name:Visual Studio Code" \
-                   -file-browser-oc-cmd "zed;name:Zed" \
+                   -file-browser-oc-cmd "zeditor;name:Zed" \
                    -file-browser-only-dirs \
                    -file-browser-dir "{}" \

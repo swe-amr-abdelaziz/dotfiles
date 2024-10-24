@@ -9,14 +9,14 @@ notification_type=0
 
 [StatusIcon]
 stepsize=5
-onclick=xterm -e 'alsamixer'
-theme=White Gnome
+onclick=kitty -e 'alsamixer'
+theme=Default
 use_panel_specific_icons=false
 reverse_scroll_direction=false
-lmb_slider=true
-mmb_mute=true
+lmb_slider=false
+mmb_mute=false
 use_horizontal_slider=false
-show_sound_level=true
+show_sound_level=false
 use_transparent_background=false
 
 [Hotkeys]

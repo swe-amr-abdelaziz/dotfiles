@@ -11,7 +11,5 @@
 .local/wallpapers/
 .local/zsh/
 .p10k.zsh
-.xinitrc
-.Xresources
-.xsessionrc
+.xprofile
 .zshrc

@@ -10,7 +10,7 @@ configuration {
   display-ssh: "";
   display-window: "";
   drun-display-format: "{name}";
-  font: "MesloLGS Nerd Font 15";
+  font: "JetBrains Mono NL 15";
   hover-select: false;
   kb-accept-entry: "Return";
   kb-page-next: "Page_Down,Control+n";

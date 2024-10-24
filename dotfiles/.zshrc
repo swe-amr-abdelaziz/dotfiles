@@ -15,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -114,15 +114,20 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Allow vi mode in zsh
 bindkey -v
 
 # Alias
+alias v='nvim'
+alias v.='nvim .'
+alias zed='zeditor'
+alias lg='lazygit'
+
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
@@ -160,14 +165,14 @@ function check_req () {
 
 function fzf-nvim () {
     if $(check_req); then
-        
+
         local selected_file=$( \
             fd --type f \
             --hidden \
             --follow \
             --max-depth 1 \
             --exclude .git | \
-            
+
             fzf \
             --info inline \
             --bind 'ctrl-d:preview-down,ctrl-u:preview-up' \
@@ -177,26 +182,26 @@ function fzf-nvim () {
             --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7 \
             --query "$LBUFFER" --prompt="nvim file > "
         )
-        
+
         if [ -n "$selected_file" ]; then
             BUFFER="nvim $selected_file"
             zle accept-line
         fi
         zle reset-prompt
-        
+
     fi
 }
 
 function fzf-cd () {
     if $(check_req); then
-        
+
         local selected_file=$( \
             fd --type d \
             --max-depth 1 \
             --hidden \
             --follow \
             --exclude .git | \
-            
+
             fzf --preview "lsd -l --blocks=permission,name {} | head -50" \
             --bind 'ctrl-d:preview-down,ctrl-u:preview-up' \
             --info inline \
@@ -205,13 +210,13 @@ function fzf-cd () {
             --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7 \
             --query "$LBUFFER" --prompt="Change dir to > "
         )
-        
+
         if [ -n "$selected_file" ]; then
             BUFFER="cd $selected_file"
             zle accept-line
         fi
         zle reset-prompt
-        
+
     fi
 }
 
@@ -221,11 +226,7 @@ bindkey '^F' fzf-cd
 bindkey '^K' fzf-nvim
 
 # Enable autocompletation again
-source ~/.fzf/shell/completion.zsh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source /usr/share/fzf/completion.zsh
 
 # NNN plugins
 export NNN_PLUG='p:preview-tui'
@@ -233,7 +234,11 @@ export NNN_FIFO=/tmp/nnn.fifo
 export PAGER="less -R"
 
 # NNN fast explorer
-source ~/.local/zsh/quitcd.zsh
+source $HOME/.local/zsh/quitcd.zsh
 
 # n^M == Return
 bindkey -s '^E' 'n^M'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# Default Terminal
+export TERMINAL=/usr/bin/kitty
+
+# Add local bin to PATH
+export PATH="$PATH:$HOME/.local/bin"
+
+# Sleep Settings
+xset s off
+xset -dpms
+
+# Display Settings
+
+## HDMI
+### xrandr --output DisplayPort-1-3 --same-as eDP1 --mode 1920x1080 --scale 1x1 --set "output_csc" "tvrgb"
+
+## Laptop
+xrandr --output eDP1 --mode 1920x1080 --scale 1x1 --dpi 120
+redshift -O 4500
+
+# Keyboard Settings
+setxkbmap -layout us,ara -option 'grp:win_space_toggle'
+setxkbmap -option caps:swapescape
+xset r rate 200 60
+
+# Touchpad Settings
+
+## Natural Scrolling
+xinput --set-prop "AlpsPS/2 ALPS DualPoint TouchPad" "libinput Natural Scrolling Enabled" 1
+
+## Enable tab-to-click
+xinput --set-prop "AlpsPS/2 ALPS DualPoint TouchPad" "libinput Tapping Enabled" 1
+
+# Lock screen on startup
+i3lock -i "$HOME/.local/wallpapers/bg$(shuf -i 1-9 -n 1).png"

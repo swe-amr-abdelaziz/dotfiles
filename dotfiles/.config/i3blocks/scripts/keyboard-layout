@@ -4,7 +4,7 @@ result=$(xset -q | grep LED | awk '{ print $10 }' | cut -c 5)
 
 case "$result" in
   "0") layout="en" ;;
-  "1") layout="ع" ;;
+  "1") layout="ar" ;;
   *) layout="?" ;;
 esac
 
